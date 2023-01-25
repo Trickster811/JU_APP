@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ju_app/screens/about_page.dart';
 import 'package:ju_app/screens/all_games_pages.dart';
 import 'package:ju_app/screens/calendar_page.dart';
-import 'package:ju_app/screens/sub_pages/theme_page.dart';
+import 'package:ju_app/screens/sub_pages/components/theme_page.dart';
 import 'package:ju_app/screens/new_page.dart';
 import 'package:ju_app/screens/team_details_page.dart';
 import 'package:ju_app/utils/utils.dart';

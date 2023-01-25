@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ju_app/screens/about_page.dart';
-import 'package:ju_app/screens/sub_pages/theme_page.dart';
+import 'package:ju_app/screens/sub_pages/components/theme_page.dart';
 import 'package:ju_app/utils/utils.dart';
 
 class DetailsScreen extends StatelessWidget {
