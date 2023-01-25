@@ -38,8 +38,10 @@ dependencies:
   cupertino_icons: ^1.0.2
   file_picker:
   flutter_svg:
+  getwidget:
   path_provider:
   permission_handler:
+  provider:
   shared_preferences:
   url_launcher:
 

@@ -8,10 +8,6 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-final primaryColor = Color.fromARGB(255, 1, 47, 116);
-
-final secondColor = Color.fromARGB(255, 208, 226, 253);
-
 class UtilFunctions {
   static late SharedPreferences _preferences;
   static const themeMode = 'isDark';
@@ -19,6 +15,12 @@ class UtilFunctions {
   static Future init() async {
     _preferences = await SharedPreferences.getInstance();
   }
+
+  static Future setTheme(int isDark) async {
+    await _preferences.setInt(themeMode, isDark);
+  }
+
+  static int? getTheme() => _preferences.getInt(themeMode);
 
   static Future setFirstTime(bool firstTime) async {
     await _preferences.setBool('firstTime', firstTime);
@@ -179,4 +181,49 @@ class UtilFunctions {
     );
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
+}
+
+class ThemeProvider extends ChangeNotifier {
+  static int? isDark;
+
+  static Future init() async {
+    isDark = UtilFunctions.getTheme();
+  }
+
+  ThemeMode themeMode =
+      isDark == null || isDark == 0 ? ThemeMode.light : ThemeMode.dark;
+
+  bool get isDarkMode => themeMode == ThemeMode.dark;
+
+  void toggleTheme(bool isOn) async {
+    themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    UtilFunctions.setTheme(isOn ? 1 : 0);
+    notifyListeners();
+    // final theme = await SharedPreferences.getInstance();
+    // theme.setBool('isDark', isOn);
+  }
+}
+
+class MyThemes {
+  static final darkTheme = ThemeData(
+    scaffoldBackgroundColor: Color.fromARGB(255, 12, 12, 12),
+    primaryColor: Color.fromARGB(255, 27, 27, 27),
+    fontFamily: 'Comfortaa_bold',
+    colorScheme: ColorScheme.dark(),
+    bottomAppBarColor: Colors.black,
+    iconTheme: IconThemeData(
+      color: Colors.white,
+    ),
+  );
+
+  static final lightTheme = ThemeData(
+    scaffoldBackgroundColor: Color.fromARGB(255, 241, 241, 241),
+    fontFamily: 'Comfortaa_bold',
+    primaryColor: Colors.white,
+    colorScheme: ColorScheme.light(),
+    bottomAppBarColor: Colors.white,
+    iconTheme: IconThemeData(
+      color: Colors.black,
+    ),
+  );
 }

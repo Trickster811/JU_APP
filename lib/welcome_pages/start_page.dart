@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ju_app/screens/about_page.dart';
 import 'package:ju_app/screens/all_games_pages.dart';
 import 'package:ju_app/screens/calendar_page.dart';
+import 'package:ju_app/screens/sub_pages/theme_page.dart';
 import 'package:ju_app/screens/new_page.dart';
 import 'package:ju_app/screens/team_details_page.dart';
 import 'package:ju_app/utils/utils.dart';
@@ -36,6 +37,11 @@ class _MyHomePageState extends State<MyHomePage> {
     ];
     List<List> menuItemList = [
       [
+        'assets/icons/discount.5.svg',
+        'Thème',
+        ThemeScreen(),
+      ],
+      [
         'assets/icons/info-square.4.svg',
         'A propos',
         AboutScreen(),
@@ -58,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
           listOfScreensTitle[currentState],
           style: TextStyle(
             fontSize: 25,
-            color: Colors.black,
+            color: Theme.of(context).iconTheme.color,
           ),
         ),
         actions: [
@@ -68,6 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
             },
             icon: SvgPicture.asset(
               'assets/icons/category.2.svg',
+              color: Theme.of(context).iconTheme.color,
             ),
           ),
         ],
@@ -78,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
         width: deviceSize.width,
         margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: Colors.blueGrey,
+          color: Theme.of(context).primaryColor,
           borderRadius: BorderRadius.all(
             Radius.circular(10.0),
           ),
@@ -102,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: currentState != 0
                   ? SvgPicture.asset(
                       'assets/icons/game.2.svg',
-                      color: Colors.white,
+                      color: Theme.of(context).iconTheme.color,
                     )
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -111,11 +118,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 5,
                           width: 30,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).iconTheme.color!,
                             borderRadius: BorderRadius.circular(1000),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Theme.of(context).iconTheme.color!,
                                 blurRadius: 10, blurStyle: BlurStyle.inner,
                                 // spreadRadius: 1,
                                 offset: Offset(
@@ -129,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Spacer(),
                         SvgPicture.asset(
                           'assets/icons/game.svg',
-                          color: Colors.white,
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         Spacer(),
                       ],
@@ -144,7 +151,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: currentState != 1
                   ? SvgPicture.asset(
                       'assets/icons/document.svg',
-                      color: Colors.white,
+                      color: Theme.of(context).iconTheme.color,
                     )
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -153,11 +160,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 5,
                           width: 30,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).iconTheme.color!,
                             borderRadius: BorderRadius.circular(1000),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Theme.of(context).iconTheme.color!,
                                 blurRadius: 10, blurStyle: BlurStyle.inner,
                                 // spreadRadius: 1,
                                 offset: Offset(
@@ -171,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Spacer(),
                         SvgPicture.asset(
                           'assets/icons/document.3.svg',
-                          color: Colors.white,
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         Spacer(),
                       ],
@@ -186,7 +193,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: currentState != 2
                   ? SvgPicture.asset(
                       'assets/icons/calendar.svg',
-                      color: Colors.white,
+                      color: Theme.of(context).iconTheme.color,
                     )
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,11 +202,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 5,
                           width: 30,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).iconTheme.color!,
                             borderRadius: BorderRadius.circular(1000),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Theme.of(context).iconTheme.color!,
                                 blurRadius: 10, blurStyle: BlurStyle.inner,
                                 // spreadRadius: 1,
                                 offset: Offset(
@@ -213,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Spacer(),
                         SvgPicture.asset(
                           'assets/icons/calendar.6.svg',
-                          color: Colors.white,
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         Spacer(),
                       ],
@@ -228,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: currentState != 3
                   ? SvgPicture.asset(
                       'assets/icons/3-user.2.svg',
-                      color: Colors.white,
+                      color: Theme.of(context).iconTheme.color,
                     )
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -237,11 +244,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           height: 5,
                           width: 30,
                           decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).iconTheme.color!,
                             borderRadius: BorderRadius.circular(1000),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.white,
+                                color: Theme.of(context).iconTheme.color!,
                                 blurRadius: 10, blurStyle: BlurStyle.inner,
                                 // spreadRadius: 1,
                                 offset: Offset(
@@ -255,7 +262,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Spacer(),
                         SvgPicture.asset(
                           'assets/icons/3-user.5.svg',
-                          color: Colors.white,
+                          color: Theme.of(context).iconTheme.color,
                         ),
                         Spacer(),
                       ],
