@@ -74,7 +74,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   height: 10,
                 ),
                 Text(
-                  'Ndere Ads',
+                  'JU APP',
                   style: TextStyle(
                     fontSize: 15,
                     fontFamily: 'Comfortaa_bold',
@@ -84,7 +84,8 @@ class _LoadingScreenState extends State<LoadingScreen> {
                   height: 10,
                 ),
                 Text(
-                  'Application Publicitaire',
+                  'Jeux Universitaires\nNgaoundéré 2023',
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 10,
                     fontFamily: 'Comfortaa_bold',

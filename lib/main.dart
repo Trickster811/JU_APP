@@ -31,6 +31,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: primaryColor,
         fontFamily: 'Comfortaa_bold',
+        // scaffoldBackgroundColor: Color.fromARGB(230, 255, 255, 255),
       ),
       home: LoadingScreen(
         userInfo: userInfo,

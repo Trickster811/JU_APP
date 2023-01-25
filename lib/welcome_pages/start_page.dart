@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ju_app/screens/about_page.dart';
+import 'package:ju_app/screens/all_games_pages.dart';
+import 'package:ju_app/screens/calendar_page.dart';
+import 'package:ju_app/screens/new_page.dart';
+import 'package:ju_app/screens/team_details_page.dart';
 import 'package:ju_app/utils/utils.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -25,10 +29,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final deviceSize = MediaQuery.of(context).size;
     final listOfScreensTitle = [
-      'Acceuil',
-      'Poster',
-      'Recherche',
-      'Service',
+      'JU Ndere',
+      'Actualités',
+      'Calendrier',
+      'Details',
     ];
     List<List> menuItemList = [
       [
@@ -38,7 +42,12 @@ class _MyHomePageState extends State<MyHomePage> {
       ],
     ];
 
-    final listOfScreens = [];
+    final listOfScreens = [
+      AllGamesScreen(),
+      LiveScreen(),
+      CalendarScreen(),
+      TeamDetailsScreen(),
+    ];
     return Scaffold(
       extendBody: true,
       appBar: AppBar(
@@ -54,7 +63,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              UtilFunctions.openDialog(context, menuItemList, appBarHeightSize);
+            },
             icon: SvgPicture.asset(
               'assets/icons/category.2.svg',
             ),
@@ -65,11 +76,11 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: Container(
         height: 50,
         width: deviceSize.width,
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: primaryColor,
+          color: Colors.blueGrey,
           borderRadius: BorderRadius.all(
-            Radius.circular(100000),
+            Radius.circular(10.0),
           ),
           boxShadow: [
             BoxShadow(
@@ -82,15 +93,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            IconButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 setState(() {
                   currentState = 0;
                 });
               },
-              icon: currentState != 0
+              child: currentState != 0
                   ? SvgPicture.asset(
-                      'assets/icons/bag.1.svg',
+                      'assets/icons/game.2.svg',
                       color: Colors.white,
                     )
                   : Column(
@@ -98,31 +109,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           height: 5,
-                          width: 15,
+                          width: 30,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(1000),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 10, blurStyle: BlurStyle.inner,
+                                // spreadRadius: 1,
+                                offset: Offset(
+                                  0,
+                                  5,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        Spacer(),
                         SvgPicture.asset(
-                          'assets/icons/bag.4.svg',
+                          'assets/icons/game.svg',
                           color: Colors.white,
                         ),
+                        Spacer(),
                       ],
                     ),
             ),
-            IconButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 setState(() {
                   currentState = 1;
                 });
               },
-              icon: currentState != 1
+              child: currentState != 1
                   ? SvgPicture.asset(
-                      userLoginInfo.isNotEmpty &&
-                              userLoginInfo[0] == 'Secretariat'
-                          ? 'assets/icons/activity.6.svg'
-                          : 'assets/icons/plus.svg',
+                      'assets/icons/document.svg',
                       color: Colors.white,
                     )
                   : Column(
@@ -130,31 +151,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           height: 5,
-                          width: 15,
+                          width: 30,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(1000),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 10, blurStyle: BlurStyle.inner,
+                                // spreadRadius: 1,
+                                offset: Offset(
+                                  0,
+                                  5,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        Spacer(),
                         SvgPicture.asset(
-                          userLoginInfo.isNotEmpty &&
-                                  userLoginInfo[0] == 'Secretariat'
-                              ? 'assets/icons/activity.2.svg'
-                              : 'assets/icons/plus.3.svg',
+                          'assets/icons/document.3.svg',
                           color: Colors.white,
                         ),
+                        Spacer(),
                       ],
                     ),
             ),
-            IconButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 setState(() {
                   currentState = 2;
                 });
               },
-              icon: currentState != 2
+              child: currentState != 2
                   ? SvgPicture.asset(
-                      'assets/icons/search.1.svg',
+                      'assets/icons/calendar.svg',
                       color: Colors.white,
                     )
                   : Column(
@@ -162,31 +193,41 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           height: 5,
-                          width: 15,
+                          width: 30,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(1000),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 10, blurStyle: BlurStyle.inner,
+                                // spreadRadius: 1,
+                                offset: Offset(
+                                  0,
+                                  5,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        Spacer(),
                         SvgPicture.asset(
-                          'assets/icons/search.6.svg',
+                          'assets/icons/calendar.6.svg',
                           color: Colors.white,
                         ),
+                        Spacer(),
                       ],
                     ),
             ),
-            IconButton(
-              onPressed: () {
+            InkWell(
+              onTap: () {
                 setState(() {
                   currentState = 3;
                 });
               },
-              icon: currentState != 3
+              child: currentState != 3
                   ? SvgPicture.asset(
-                      userLoginInfo.isNotEmpty &&
-                              userLoginInfo[0] == 'Secretariat'
-                          ? 'assets/icons/time-circle.4.svg'
-                          : 'assets/icons/buy.1.svg',
+                      'assets/icons/3-user.2.svg',
                       color: Colors.white,
                     )
                   : Column(
@@ -194,19 +235,29 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: [
                         Container(
                           height: 5,
-                          width: 15,
+                          width: 30,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(1000),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.white,
+                                blurRadius: 10, blurStyle: BlurStyle.inner,
+                                // spreadRadius: 1,
+                                offset: Offset(
+                                  0,
+                                  5,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
+                        Spacer(),
                         SvgPicture.asset(
-                          userLoginInfo.isNotEmpty &&
-                                  userLoginInfo[0] == 'Secretariat'
-                              ? 'assets/icons/time-circle.5.svg'
-                              : 'assets/icons/buy.svg',
+                          'assets/icons/3-user.5.svg',
                           color: Colors.white,
                         ),
+                        Spacer(),
                       ],
                     ),
             ),

@@ -67,7 +67,7 @@ class AboutScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Ndere Ads',
+                    'JU APP',
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: 'Comfortaa_bold',
@@ -77,7 +77,8 @@ class AboutScreen extends StatelessWidget {
                     height: 10,
                   ),
                   Text(
-                    'Application publicitaire',
+                    'Jeux Universitaires\nNgaoundéré 2023',
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 10,
                       fontFamily: 'Comfortaa_bold',
