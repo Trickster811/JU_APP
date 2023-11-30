@@ -39,6 +39,7 @@ dependencies:
   file_picker:
   flutter_svg:
   getwidget:
+  intl:
   path_provider:
   permission_handler:
   provider:

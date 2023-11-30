@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:ju_app/screens/sub_pages/components/football_details_page.dart';
 
 class FootballScreen extends StatelessWidget {
   @override
@@ -12,6 +13,13 @@ class FootballScreen extends StatelessWidget {
             height: 10.0,
           ),
           matchItemBuilder(context),
+          SizedBox(
+            height: 10.0,
+          ),
+          matchItemBuilder(context),
+          SizedBox(
+            height: 70.0,
+          ),
         ],
       ),
     );
@@ -27,6 +35,9 @@ class FootballScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,
         borderRadius: BorderRadius.circular(10.0),
+        border: Border.all(
+          color: Theme.of(context).iconTheme.color!.withOpacity(.05),
+        ),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(.1),
@@ -41,7 +52,7 @@ class FootballScreen extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 10.0),
             child: Text(
-              'Groupe A - Jour 2 sur 6',
+              'Phase de Poule - Jour 2 sur 6',
               style: TextStyle(
                 fontSize: 11,
               ),
@@ -155,7 +166,14 @@ class FootballScreen extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailsScreen(),
+                      ),
+                    );
+                  },
                   child: Container(
                     height: 40,
                     width: 100,

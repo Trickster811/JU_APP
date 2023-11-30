@@ -206,7 +206,7 @@ class ThemeProvider extends ChangeNotifier {
 
 class MyThemes {
   static final darkTheme = ThemeData(
-    scaffoldBackgroundColor: Color.fromARGB(255, 12, 12, 12),
+    scaffoldBackgroundColor: Color.fromRGBO(12, 12, 12, 1),
     primaryColor: Color.fromARGB(255, 27, 27, 27),
     fontFamily: 'Comfortaa_bold',
     colorScheme: ColorScheme.dark(),

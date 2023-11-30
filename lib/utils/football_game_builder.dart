@@ -72,3 +72,5 @@ class StatictisBuilder {
     required this.secondTeamRedCard,
   });
 }
+
+class NewsBuilder {}
